@@ -117,7 +117,7 @@ void GetElement(Node_st *parent) {
 				if (Look != '<' && Look != EOF) {
 					parent->elem_value.append(GetElemValue());
 				}
-				if (Look != 'EOF') {
+				if (Look != EOF) {
 					fgetpos(File, &pos);
 					Match('<');
 				}
