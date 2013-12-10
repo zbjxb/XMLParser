@@ -48,7 +48,6 @@ void Init(const char* file) {
 }
 
 void GetElement(Node_st *parent) {
-	std::string elem_name, elem_value;
 	do {
 		Node_st node;
 		Match('<');
@@ -222,8 +221,14 @@ void Match(char ch) {
 
 void MatchString(const char* str) {
 	for (const char *p = str; *p != 0; p++) {
-		Match(*p);
+		if (*p == Look) {
+			GetChar();
+		}
+		else {
+			Expected(p);
+		}
 	}
+	SkipWhite();
 }
 
 void SkipWhite() {
